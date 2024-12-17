@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM 975049886839.dkr.ecr.us-east-1.amazonaws.com/alpine:latest
 
 WORKDIR /front-end-nextjs
 
