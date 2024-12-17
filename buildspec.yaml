@@ -22,8 +22,8 @@ phases:
     commands:
      - echo "Entered the build phase..."
      - docker build -t frontend_api .
-     - docker tag frontend_api:latest 637423269050.dkr.ecr.us-east-1.amazonaws.com/frontend_api:latest
-     - docker push 637423269050.dkr.ecr.us-east-1.amazonaws.com/frontend_api:latest
+     - docker tag frontend_api:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO:$IMAGE_TAG
+     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO:$IMAGE_TAG
   post_build:
     commands:
      - echo "Entered the post_build phase"
