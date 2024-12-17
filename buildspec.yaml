@@ -9,7 +9,7 @@ phases:
     ## Any Necessary Tools that might be Needed.
     commands:
       - echo "Entered the install Phase..."
-      - apt-get update -y
+     # - apt-get update -y
     
   pre_build:
     ## Any Pre Build Setup needed to be done. Like Docker Login or setting up anything.
