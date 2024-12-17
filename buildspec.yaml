@@ -1,0 +1,33 @@
+version: 0.2
+
+env:
+
+variables:
+  key: "value"
+
+phases:
+  install: 
+    ## Any Necessary Tools that might be Needed.
+    commands:
+      - echo "Entered the install Phase..."
+      - apt-get update -y
+    
+  pre_build:
+    ## Any Pre Build Setup needed to be done. Like Docker Login or setting up anything.
+    commands:
+      - echo "Entered the pre_build phase..."
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+  build:
+    ## All the commands that are needed to build your application like docker build or mvn install.
+    commands:
+     - echo "Entered the build phase..."
+     - docker build -t frontend_api .
+     - docker tag frontend_api:latest 637423269050.dkr.ecr.us-east-1.amazonaws.com/frontend_api:latest
+     - docker push 637423269050.dkr.ecr.us-east-1.amazonaws.com/frontend_api:latest
+  post_build:
+    commands:
+     - echo "Entered the post_build phase"
+     - printf '[{"name":"frontend_api","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinations.json
+
+artifacts:
+files: imagedefinations.json
