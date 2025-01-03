@@ -87,5 +87,4 @@
     "registeredAt": "2025-01-03T08:39:33.887Z",
     "registeredBy": "arn:aws:sts::975049886839:assumed-role/AWSCodePipelineServiceRole-us-east-1-CICD-Demo/1735893573525",
     "enableFaultInjection": false,
-    "tags": []
 }
