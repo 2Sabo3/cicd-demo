@@ -1,5 +1,4 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:975049886839:task-definition/frontend_api:10",
     "containerDefinitions": [
         {
             "name": "frontend_api",
