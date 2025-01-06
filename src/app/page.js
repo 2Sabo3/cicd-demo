@@ -43,7 +43,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF', //Colour Change #FFFFFF
+    backgroundColor: '#000000', //Colour Change #FFFFFF
     color: 'white',
   },
   title: {
