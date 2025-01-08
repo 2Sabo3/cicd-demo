@@ -3,7 +3,7 @@ Resources:
    - TargetService:
         Type: AWS::ECS::Service
         Properties:
-          TaskDefinition: "arn:aws:ecs:us-east-1:975049886839:task-definition/frontend_api:21"
+          TaskDefinition: "arn:aws:ecs:us-east-1:975049886839:task-definition/frontend_api"
           LoadBalancerInfo:
               ContainerName: "frontend_api"
               ContainerPort: 3000
